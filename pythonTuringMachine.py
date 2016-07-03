@@ -28,7 +28,8 @@ class TuringMachine(object):
             self.transitions[(symbs[0],symbs[1])] = ((symbs[2],symbs[3]),symbs[4])
 
     def run_tape(self, tape, verbose=False):
-        logging.info("run tape")
+        if verbose:
+            logging.info("run tape")
         self.tape = list(tape) + ["_"] # add an explicit blank to the end of the tape
         tape_len = len(self.tape)
         head_index = 0
